@@ -1,0 +1,112 @@
+@font-face {
+  font-family: "Avenir-regular";
+  src: url(/assets/fonts/AvenirNextLTPro-Regular.otf);
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avenir-demi";
+  src: url(/assets/fonts/AvenirNextLTPro-Demi.otf);
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avenir-bold";
+  src: url(/assets/fonts/AvenirNextLTPro-Bold.otf);
+  font-weight: 700;
+  font-style: normal;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .navbar {
+    background-color: #323232;
+    padding-top: 3vh;
+  }
+  .navbar .logo {
+    margin-left: 30vw;
+  }
+  .navbar__list {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    margin-right: 10vw;
+  }
+  .navbar__list-links {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    font-family: "Avenir-demi";
+    line-height: 22px;
+  }
+
+  .hero_section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .hero_section .hero__image {
+    width: 100%;
+    margin-top: -1rem;
+    position: relative;
+    z-index: -1;
+  }
+  .hero_section .hero_heading {
+    position: absolute;
+    color: white;
+    font-size: 24px;
+    line-height: 32px;
+    font-family: "Avenir-demi";
+    padding-left: 5vw;
+  }
+
+  .about_section h1 {
+    font-family: "Avenir-demi";
+    padding-left: 5vw;
+    color: #323232;
+  }
+  .about_section img {
+    width: 90%;
+    padding-left: 5vw;
+  }
+  .about_section .about_paragraph {
+    font-family: "Avenir-demi";
+    font-size: 18.2px;
+    margin-right: 5vw;
+    color: #323232;
+    line-height: 22px;
+  }
+  .about_section h3 {
+    padding-left: 5vw;
+    font-family: "Avenir-demi";
+    font-size: 14px;
+    line-height: 18px;
+    color: #323232;
+  }
+  .about_section p {
+    width: 94%;
+    padding-left: 5vw;
+    color: #323232;
+  }
+
+  .photo_gallery {
+    background-color: #FAFAFA;
+  }
+  .photo_gallery h2 {
+    padding-top: 3vh;
+    padding-left: 5vw;
+    color: #323232;
+    font-family: "Avenir-demi";
+  }
+  .photo_gallery .gallery_images {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .photo_gallery .gallery_images img {
+    width: 94%;
+    margin: 1vh 3vw;
+  }
+}/*# sourceMappingURL=bio.css.map */
