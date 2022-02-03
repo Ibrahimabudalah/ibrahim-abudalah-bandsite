@@ -12,12 +12,12 @@ body{
     .navbar{
         background-color: $bandsite-black;
         padding-top: 3vh;
-        .logo{
+        &__logo{
             margin-left: 30vw;
         }
         &__list{
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             list-style-type: none;
             margin-right: 10vw;
             &-links{
@@ -26,74 +26,238 @@ body{
                 font-size: 14px;
                 font-family: $font-avenir-demi;
                 line-height: 22px;
+                border-bottom: 0.2rem white solid;
+                width: 30vw;
             }
         }
     }
-    .hero_section{
+    .hero{
         display: flex;
         align-items: center;
         justify-content:flex-start;
-        .hero__image{
+        &__heading{
+        position: absolute;
+        color: white;
+        font-size: 24px;
+        line-height: 32px;
+        font-family: $font-avenir-demi;
+        padding-left: 5vw;
+        }
+        &__image{
             width:100%;
             margin-top: -1rem;
             position: relative;
             z-index: -1;
-        }
-        .hero_heading{
-            position: absolute;
-            color: white;
-            font-size: 24px;
-            line-height: 32px;
-            font-family: $font-avenir-demi;
-            padding-left: 5vw;
+            background: $bandsite-black;
+            opacity: 0.5;
         }
     }
-    .about_section{
-        h1{
+    .about{
+        padding-left: 5vw;
+        &__heading{
             font-family: $font-avenir-demi;
-            padding-left: 5vw;
             color: $bandsite-black;
         }
-        img{
-            width: 90%;
-            padding-left: 5vw;
+        &__image{
+            width: 95%;
         }
-        .about_paragraph{
+        &__quote{
             font-family: $font-avenir-demi;
             font-size: 18.2px;
-            margin-right: 5vw;
             color: $bandsite-black;
             line-height: 22px;
         }
-        h3{
-            padding-left: 5vw;
+        &__subheader{
             font-family: $font-avenir-demi;
             font-size: 14px;
             line-height: 18px;
             color: $bandsite-black;
         }
-        p{
+        &__paragraphs{
             width: 94%;
-            padding-left: 5vw;
             color: $bandsite-black;
         }
        
     }
-    .photo_gallery{
+    .gallery{
         background-color: $alabaster;
-        h2{
+        &__heading{
             padding-top: 3vh;
             padding-left: 5vw;
             color: $bandsite-black;
             font-family: $font-avenir-demi;
         }
-        .gallery_images{
+        &__images{
             display: flex;
             flex-wrap: wrap;
             img{
                 width: 94%;
                 margin: 1vh 3vw;
             }
+        }
+    }
+    .footer{
+        background-color: $bandsite-black;
+        padding-left: 5vw;
+        &__heading{
+            color: white;
+            padding-top: 3vh;
+            font-family: $font-avenir-regular;
+            font-size: 24px;
+        }
+        &__icons{
+            padding-right: 6vw;
+            height: 4vh;
+        }
+        &__info{
+            color: white;
+            display: flex;
+            flex-direction: column;
+            a{
+                text-decoration: none;
+                color: white;
+            }
+            &--bold{
+                font-family: $font-avenir-demi;
+                margin-bottom: 1vh;
+            }
+            &--regular{
+                font-family: $font-avenir-regular;
+                margin-top: 1vh;
+            }
+        }
+        p{
+            color: white;
+            font-family: $font-avenir-regular;
+        }
+    }
+}
+@include tablet{
+    .navbar{
+        background-color: $bandsite-black;
+        // padding-top: 3vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &__logo{
+            // margin-left: 3vw;
+        }
+        &__list{
+            display: flex;
+            justify-content:space-evenly;
+            list-style-type: none;
+            // margin-right: 10vw;
+            &-links{
+                text-decoration: none;
+                color: white;
+                font-size: 14px;
+                font-family: $font-avenir-demi;
+                // line-height: 22px;
+                // padding-bottom: 3vh;
+                border-bottom: 0.2rem white solid;
+                // width: 50%;
+            }
+        }
+    }
+    .hero{
+        display: flex;
+        align-items: center;
+        &__heading{
+        position: absolute;
+        color: white;
+        font-size: 60px;
+        font-family: $font-avenir-demi;
+        padding-left: 5vw;
+        padding-top: 5vw;
+        }
+        &__image{
+            width:100%;
+            margin-top: -1rem;
+            position: relative;
+            z-index: -1;
+            background: $bandsite-black;
+            opacity: 0.5;
+        }
+    }
+    .about{
+        padding-left: 5vw;
+        &__heading{
+            font-family: $font-avenir-demi;
+            color: $bandsite-black;
+            font-size: 36px;
+        }
+        &__image{
+            width: 80%;
+            padding-left: 8vw;
+        }
+        &__quote{
+            font-family: $font-avenir-demi;
+            font-size: 18.2px;
+            color: $bandsite-black;
+            line-height: 22px;
+        }
+        &__subheader{
+            font-family: $font-avenir-demi;
+            font-size: 14px;
+            line-height: 18px;
+            color: $bandsite-black;
+        }
+        &__paragraphs{
+            width: 94%;
+            color: $bandsite-black;
+        }
+       
+    }
+    .gallery{
+        background-color: $alabaster;
+        &__heading{
+            padding-top: 3vh;
+            padding-left: 5vw;
+            color: $bandsite-black;
+            font-family: $font-avenir-demi;
+        }
+        &__images{
+            display: flex;
+            flex-wrap: wrap;
+            img{
+                width: 94%;
+                margin: 1vh 3vw;
+            }
+        }
+    }
+    .footer{
+        background-color: $bandsite-black;
+        padding-left: 5vw;
+        &__heading{
+            color: white;
+            padding-top: 3vh;
+            font-family: $font-avenir-regular;
+            font-size: 24px;
+        }
+        &__icons{
+            padding-right: 6vw;
+            height: 4vh;
+        }
+        &__info{
+            color: white;
+            display: flex;
+            flex-direction: column;
+            a{
+                text-decoration: none;
+                color: white;
+            }
+            &--bold{
+                font-family: $font-avenir-demi;
+                margin-bottom: 1vh;
+            }
+            &--regular{
+                font-family: $font-avenir-regular;
+                margin-top: 1vh;
+            }
+        }
+        p{
+            color: white;
+            font-family: $font-avenir-regular;
         }
     }
 }
