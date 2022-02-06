@@ -1,263 +1,298 @@
 @use "partials/colors" as *;
-@use "partials/variables" as *;
 @use "partials/mixins" as *;
 @use "partials/fonts" as *;
 // Default
-body{
-    margin: 0;
-    padding: 0;
+body {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style-type: none;
+}
+li {
+  color: white;
+}
+a {
+  text-decoration: none;
 }
 // navigation bar
-@include mobile{
-    .navbar{
-        background-color: $bandsite-black;
-        padding-top: 3vh;
-        &__logo{
-            margin-left: 30vw;
-        }
-        &__list{
-            display: flex;
-            justify-content: center;
-            list-style-type: none;
-            margin-right: 10vw;
-            &-links{
-                text-decoration: none;
-                color: white;
-                font-size: 14px;
-                font-family: $font-avenir-demi;
-                line-height: 22px;
-                border-bottom: 0.2rem white solid;
-                width: 30vw;
-            }
-        }
+.navbar {
+  background-color: $bandsite-black;
+  padding-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  @include desktop {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    height: 20vh;
+  }
+  &__logo {
+    margin-left: 37vw;
+    @include tablet {
+      margin-left: 5vw;
     }
-    .hero{
-        display: flex;
-        align-items: center;
-        justify-content:flex-start;
-        &__heading{
-        position: absolute;
-        color: white;
-        font-size: 24px;
-        line-height: 32px;
-        font-family: $font-avenir-demi;
-        padding-left: 5vw;
-        }
-        &__image{
-            width:100%;
-            margin-top: -1rem;
-            position: relative;
-            z-index: -1;
-            background: $bandsite-black;
-            opacity: 0.5;
-        }
+    @include desktop {
+      margin-left: 10vw;
+      padding-top: 6vh;
+      width: 10vw;
     }
-    .about{
-        padding-left: 5vw;
-        &__heading{
-            font-family: $font-avenir-demi;
-            color: $bandsite-black;
-        }
-        &__image{
-            width: 95%;
-        }
-        &__quote{
-            font-family: $font-avenir-demi;
-            font-size: 18.2px;
-            color: $bandsite-black;
-            line-height: 22px;
-        }
-        &__subheader{
-            font-family: $font-avenir-demi;
-            font-size: 14px;
-            line-height: 18px;
-            color: $bandsite-black;
-        }
-        &__paragraphs{
-            width: 94%;
-            color: $bandsite-black;
-        }
-       
+  }
+  &__list {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 6vw;
+    &-links {
+      color: white;
+      font-size: 14px;
+      font-family: $font-avenir-demi;
     }
-    .gallery{
-        background-color: $alabaster;
-        &__heading{
-            padding-top: 3vh;
-            padding-left: 5vw;
-            color: $bandsite-black;
-            font-family: $font-avenir-demi;
-        }
-        &__images{
-            display: flex;
-            flex-wrap: wrap;
-            img{
-                width: 94%;
-                margin: 1vh 3vw;
-            }
-        }
+    @include desktop {
+      padding-right: 4vw;
     }
-    .footer{
-        background-color: $bandsite-black;
-        padding-left: 5vw;
-        &__heading{
-            color: white;
-            padding-top: 3vh;
-            font-family: $font-avenir-regular;
-            font-size: 24px;
-        }
-        &__icons{
-            padding-right: 6vw;
-            height: 4vh;
-        }
-        &__info{
-            color: white;
-            display: flex;
-            flex-direction: column;
-            a{
-                text-decoration: none;
-                color: white;
-            }
-            &--bold{
-                font-family: $font-avenir-demi;
-                margin-bottom: 1vh;
-            }
-            &--regular{
-                font-family: $font-avenir-regular;
-                margin-top: 1vh;
-            }
-        }
-        p{
-            color: white;
-            font-family: $font-avenir-regular;
-        }
+    @include tablet {
+      font-size: 14px;
+      font-family: $font-avenir-demi;
+      border-bottom: 0.2rem white solid;
     }
+  }
 }
-@include tablet{
-    .navbar{
-        background-color: $bandsite-black;
-        // padding-top: 3vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        &__logo{
-            // margin-left: 3vw;
-        }
-        &__list{
-            display: flex;
-            justify-content:space-evenly;
-            list-style-type: none;
-            // margin-right: 10vw;
-            &-links{
-                text-decoration: none;
-                color: white;
-                font-size: 14px;
-                font-family: $font-avenir-demi;
-                // line-height: 22px;
-                // padding-bottom: 3vh;
-                border-bottom: 0.2rem white solid;
-                // width: 50%;
-            }
-        }
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  &__heading {
+    position: absolute;
+    color: white;
+    font-size: 24px;
+    line-height: 32px;
+    font-family: $font-avenir-demi;
+    padding-left: 5vw;
+    @include tablet {
+      font-size: 60px;
+      padding-top: 5vw;
     }
-    .hero{
-        display: flex;
-        align-items: center;
-        &__heading{
-        position: absolute;
-        color: white;
-        font-size: 60px;
+    @include desktop {
+      font-size: 60px;
+      font-family: $font-avenir-demi;
+      margin-left: 5vw;
+    }
+  }
+  &__image {
+    width: 100%;
+    margin-top: -1rem;
+    position: relative;
+    z-index: -1;
+    background: $bandsite-black;
+    opacity: 0.85;
+  }
+}
+.about {
+  padding-left: 5vw;
+  &__heading {
+    font-family: $font-avenir-demi;
+    color: $bandsite-black;
+    @include tablet {
+      font-size: 36px;
+      line-height: 44px;
+    }
+    @include desktop {
+      font-size: 36px;
+      line-height: 44px;
+      padding-left: 5vw;
+    }
+  }
+  &__image {
+    width: 95%;
+    @include tablet {
+      width: 80%;
+      margin-left: 8vw;
+    }
+    @include desktop {
+      width: 72%;
+      height: 60vh;
+      padding-top: 2vh;
+      margin-left: 12vw;
+    }
+  }
+  &__quote {
+    font-family: $font-avenir-demi;
+    font-size: 18.2px;
+    color: $bandsite-black;
+    line-height: 22px;
+    @include tablet {
+      font-size: 24px;
+      line-height: 32px;
+      width: 83%;
+      margin-left: 8vw;
+    }
+    @include desktop {
+      font-size: 24px;
+      line-height: 32px;
+      width: 59%;
+      margin-left: 12vw;
+    }
+    &--author {
+      @include tablet {
         font-family: $font-avenir-demi;
-        padding-left: 5vw;
-        padding-top: 5vw;
-        }
-        &__image{
-            width:100%;
-            margin-top: -1rem;
-            position: relative;
-            z-index: -1;
-            background: $bandsite-black;
-            opacity: 0.5;
-        }
+        color: $bandsite-black;
+        font-size: 18px;
+        line-height: 22px;
+        margin-left: 8vw;
+      }
+      @include desktop {
+        font-family: $font-avenir-demi;
+        color: $bandsite-black;
+        font-size: 18px;
+        line-height: 22px;
+        margin-left: 12vw;
+      }
     }
-    .about{
-        padding-left: 5vw;
-        &__heading{
-            font-family: $font-avenir-demi;
-            color: $bandsite-black;
-            font-size: 36px;
-        }
-        &__image{
-            width: 80%;
-            padding-left: 8vw;
-        }
-        &__quote{
-            font-family: $font-avenir-demi;
-            font-size: 18.2px;
-            color: $bandsite-black;
-            line-height: 22px;
-        }
-        &__subheader{
-            font-family: $font-avenir-demi;
-            font-size: 14px;
-            line-height: 18px;
-            color: $bandsite-black;
-        }
-        &__paragraphs{
-            width: 94%;
-            color: $bandsite-black;
-        }
-       
+  }
+  &__subheader {
+    font-family: $font-avenir-demi;
+    font-size: 14px;
+    line-height: 18px;
+    color: $bandsite-black;
+    @include tablet {
+      font-size: 24px;
+      line-height: 32px;
+      margin-left: 8vw;
+      padding-top: 5vh;
+      width: 90%;
     }
-    .gallery{
-        background-color: $alabaster;
-        &__heading{
-            padding-top: 3vh;
-            padding-left: 5vw;
-            color: $bandsite-black;
-            font-family: $font-avenir-demi;
-        }
-        &__images{
-            display: flex;
-            flex-wrap: wrap;
-            img{
-                width: 94%;
-                margin: 1vh 3vw;
-            }
-        }
+    @include desktop {
+      font-size: 24px;
+      line-height: 32px;
+      margin-left: 12vw;
+      padding-top: 5vh;
     }
-    .footer{
-        background-color: $bandsite-black;
-        padding-left: 5vw;
-        &__heading{
-            color: white;
-            padding-top: 3vh;
-            font-family: $font-avenir-regular;
-            font-size: 24px;
-        }
-        &__icons{
-            padding-right: 6vw;
-            height: 4vh;
-        }
-        &__info{
-            color: white;
-            display: flex;
-            flex-direction: column;
-            a{
-                text-decoration: none;
-                color: white;
-            }
-            &--bold{
-                font-family: $font-avenir-demi;
-                margin-bottom: 1vh;
-            }
-            &--regular{
-                font-family: $font-avenir-regular;
-                margin-top: 1vh;
-            }
-        }
-        p{
-            color: white;
-            font-family: $font-avenir-regular;
-        }
+  }
+  &__text {
+    font-family: $font-avenir-regular;
+    @include tablet {
+      display: flex;
+      align-items: flex-start;
+      font-size: 14px;
+      line-height: 22px;
+      margin: 0 8vw;
+      width: 80%;
     }
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      font-size: 14px;
+      line-height: 22px;
+      margin: 0 12vw;
+      width: 69%;
+    }
+    &__paragraphs {
+      width: 94%;
+      color: $bandsite-black;
+    }
+  }
+}
+.gallery {
+  background-color: $alabaster;
+  &__heading {
+    padding-top: 3vh;
+    padding-left: 5vw;
+    color: $bandsite-black;
+    font-family: $font-avenir-demi;
+    @include tablet {
+      font-size: 36px;
+      padding-top: 7vh;
+    }
+    @include desktop {
+      font-size: 36px;
+      margin-left: 5vw;
+    }
+  }
+  &__images {
+    display: flex;
+    flex-wrap: wrap;
+    @include tablet {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      margin-left: 2vw;
+    }
+    @include desktop {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: 9vw;
+    }
+    img {
+      width: 94%;
+      margin: 1vh 3vw;
+      @include tablet {
+        width: 29%;
+        margin: 2vh 0vw;
+      }
+      @include desktop {
+        width: 28%;
+        // padding-left: 2vw;
+        margin: 1vh 1vw;
+      }
+    }
+  }
+}
+.footer {
+  background-color: $bandsite-black;
+  padding-left: 5vw;
+  height: auto;
+  @include desktop {
+    height: 100%;
+  }
+  &__heading {
+    color: white;
+    padding-top: 3vh;
+    font-family: $font-avenir-regular;
+    font-size: 24px;
+    @include tablet {
+      font-size: 36px;
+      padding-top: 8vh;
+    }
+    @include desktop {
+      font-size: 36px;
+      margin-left: 5vw;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  &__icons {
+    padding-right: 6vw;
+    height: 4vh;
+  }
+  &__info {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    a {
+      text-decoration: none;
+      color: white;
+    }
+    &--bold {
+      font-family: $font-avenir-demi;
+      margin-bottom: 1vh;
+    }
+    &--regular {
+      font-family: $font-avenir-regular;
+      margin-top: 1vh;
+    }
+  }
+  &__copyright {
+    color: white;
+    font-family: $font-avenir-regular;
+    margin: 0;
+  }
 }
