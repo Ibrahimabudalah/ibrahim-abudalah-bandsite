@@ -14,6 +14,7 @@ li {
 }
 a {
   text-decoration: none;
+  color: white;
 }
 // navigation bar
 .navbar {
@@ -33,7 +34,7 @@ a {
     flex-direction: row;
     justify-content: left;
     align-items: center;
-    height: 20vh;
+    height: 12vh;
   }
   &__logo {
     margin-left: 37vw;
@@ -42,14 +43,14 @@ a {
     }
     @include desktop {
       margin-left: 10vw;
-      padding-top: 6vh;
+      padding-bottom: 3vh;
       width: 10vw;
     }
   }
   &__list {
     display: flex;
     justify-content: space-around;
-    padding: 0 6vw;
+    padding: 0 7vw;
     &-links {
       color: white;
       font-size: 14px;
@@ -57,6 +58,7 @@ a {
     }
     @include desktop {
       padding-right: 4vw;
+      padding-bottom: 3vh;
     }
     @include tablet {
       font-size: 14px;
@@ -250,6 +252,7 @@ a {
   background-color: $bandsite-black;
   padding-left: 5vw;
   height: auto;
+  position: relative;
   @include desktop {
     height: 100%;
   }
@@ -277,10 +280,6 @@ a {
     color: white;
     display: flex;
     flex-direction: column;
-    a {
-      text-decoration: none;
-      color: white;
-    }
     &--bold {
       font-family: $font-avenir-demi;
       margin-bottom: 1vh;
