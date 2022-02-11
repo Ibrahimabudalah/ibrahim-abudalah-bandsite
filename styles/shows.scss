@@ -1,0 +1,73 @@
+@use "partials/colors" as *;
+@use "partials/mixins" as *;
+@use "partials/fonts" as *;
+@use "partials/global" as *;
+
+//navbar underline
+.navbar{
+  &__items-link--hover{
+        font-weight: 600;
+        color: white;
+        @include tablet{
+            padding-bottom: 36%;
+            border-bottom: 3px solid white;
+        }
+        @include desktop{
+            padding-bottom: 40%;
+        }
+        &::after{
+        display:block;
+        position: absolute;
+        content: "";
+        height: 3px;
+        background-color: white;
+        width: 50%;
+        margin-top: 2vh;
+        left: 0%;
+        @include tablet {
+            display:none;
+            }
+        }
+    }
+}
+//hero starts here
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-image: url(/assets/images/hero-shows.jpg);
+  background-size: cover;
+  width: 100%;
+  height: 30vh;
+  &__blur{
+      background-color: $bandsite-black;
+      opacity: 0.5;
+      width: 100%;
+      height: 30vh;
+  }
+  &__name{
+      color: white;
+      font-size: 1rem;
+      font-weight: 400;
+      padding-bottom: 15vh;
+      padding-left: 5vw;
+  }
+  &__heading {
+    position: absolute;
+    color: white;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+    padding-left: 5vw;
+    width: 65%;
+    @include tablet {
+      font-size: 60px;
+      padding-top: 5vw;
+    }
+    @include desktop {
+      font-size: 60px;
+      font-weight: 600;
+      margin-left: 5vw;
+    }
+  }
+}

@@ -6,25 +6,40 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/styles/bio.css" />
+  <link rel="stylesheet" href="/styles/shows.css">
   <title>BandSite</title>
 </head>
 
 <body>
   <nav class="navbar">
-    <a href="/">
+    <a href="/" class="navbar__left">
       <img src="/assets/logos/Logo-bandsite.svg" alt="BandSite logo" class="navbar__logo" />
     </a>
-    <ul class="navbar__list">
-      <a href="/" class="navbar__list--links navbar__list--active">
-        <li class="navbar__items">Biography</li>
-      </a>
-      <a href="#" class="navbar__list--links navbar__shows--active">
-        <li class="navbar__items">Shows</li>
-      </a>
-    </ul>
+    <div class="navbar__right">
+      <ul class="navbar__list">
+        <a href="/" class="navbar__items">
+          <li class="navbar__items-link navbar__items-link--active">Biography</li>
+        </a>
+        <a href="/pages/shows.html" class="navbar__items">
+          <li class="navbar__items-link navbar__items-link--hover">Shows</li>
+        </a>
+      </ul>
+    </div>
   </nav>
+
+
+
+
+
+
+
+
+
+
+
   <section class="hero">
     <img src="/assets/images/hero-bio.jpg" alt="hero-bio" class="hero__image" />
+
     <h3 class="hero__heading">The Bees Knees</h3>
   </section>
   <section class="about">
@@ -34,10 +49,10 @@
       “We push each other to be the best. It’s not uncommon for one of us to
       say ‘this needs to be better, back to the drawing board’”
     </p>
-    <p class="about__quote--author">- Bryan Teddy, lead vocalist of The Bees Knees</p>
+    <p class="about__quote-author">- Bryan Teddy, lead vocalist of The Bees Knees</p>
     <p class="about__subheader">The Bees Knees</p>
     <div class="about__text">
-      <p class="about__paragraphs">
+      <p class="about__text__paragraphs">
         The Bees Knees is a pop rock band originating from San Francisco,
         California. The band consists of lead vocalist Bryan Teddy, guitarist
         Mack Tolkens, guitarist Andrew Green, bassist Kent Zulkee and drummer
@@ -47,7 +62,7 @@
         Cat’s Meow), Adams was confident the band could succeed even further,
         pushing them to sign with Magenta Records.
       </p>
-      <p class="about__paragraphs">
+      <p class="about__text__paragraphs">
         From there, the band has soared, gaining international recognition and
         ranking in the top 10 on the Poster Charts. New fans immediately fell in
         love with the band’s original and organic attitude, solidifying their
@@ -74,48 +89,78 @@
       <img src="/assets/images/Photo-gallery-9.jpg" alt="image 9" />
     </div>
   </section>
+
+
+  <section class="comments">
+    <h1 class="comments__heading">Join the Conversation</h1>
+    <form class="comments__form">
+      <img class="comments__form-image" src="./assets/images/Mohan-muruge.jpg" alt="Mohan Muruge image"/>
+      <div class="comments__form-user">
+        <div class="comments__form-name">
+          <label class="comments__form-name-label">NAME</label>
+          <input class="comments__form-name-input" type="text" name="name" placeholder="Enter your name"/>
+        </div>
+        <div class="comments__form-comment">
+          <label class="comments__form-comment-label">COMMENT</label>
+          <input class="comments__form-comment-input" type="text" name="comment" placeholder="Add a new comment" />
+        </div>
+        <button class="comments__form-btn btn" name="comment-button" type="submit">
+          COMMENT
+        </button>
+      </div>
+    </form>
+  </section>
+
+
+
+
+
+
   <footer class="footer">
-    <h2 class="footer__heading">Get in Touch</h2>
-    <a href="https://www.twitter.com">
-      <img src="/assets/icons/SVG/Icon-twitter.svg" alt="twitter icon" class="footer__icons" />
-    </a>
-    <a href="https://www.facebook.com">
-      <img src="/assets/icons/SVG/Icon-facebook.svg" alt="facebook icon" class="footer__icons" />
-    </a>
-    <a href="https://www.instagram.com">
-      <img src="/assets/icons/SVG/Icon-instagram.svg" alt="instagram icon" class="footer__icons" />
-    </a>
-    <div class="footer__info">
-      <section class="footer__info--demi">
-        <p>Cam Adams</p>
-        <p>The Bees Knees Management</p>
-      </section>
-      <section class="footer__info--regular">
-        <p>503 Broadway Penthouse</p>
-        <p>New York, NY 10012, USA</p>
-      </section>
-      <a href="mailto:info@thebeesknees.com">info@thebeesknees.com</a>
-      <section class="footer__info--demi">
-        <p>Pearl Gregg</p>
-        <p>Limitless Artist Group</p>
-      </section>
-      <section class="footer__info--regular">
-        <p>Booking Agent for</p>
-        <p>US / South America / Japan</p>
-      </section>
-      <a href="mailto:pearl.gregg@limitlessag.com">pearl.gregg@limitlessag.com</a>
-      <section class="footer__info--demi">
-        <p>Carson Whyte</p>
-        <p>ARCH Entertainment</p>
-      </section>
-      <section class="footer__info--regular">
-        <p>Booking Agent for</p>
-        <p>UK / EU / AU</p>
-      </section>
-      <a href="mailto:cwhyte@archentertainment.com">cwhyte@archentertainment.com</a>
+    <h2 class="footer__title">Get in Touch</h2>
+    <nav class="footer__nav-social">
+      <a href="http://instagram.com" class="footer__link-social">
+        <img src="/assets/icons/SVG/Icon-instagram.svg" alt="Instagram" class="footer__image-social">
+      </a>
+      <a href="http://facebook.com" class="footer__link-social">
+        <img src="/assets/icons/SVG/Icon-facebook.svg" alt="Facebook" class="footer__image-social">
+      </a>
+      <a href="http://twitter.com" class="footer__link-social">
+        <img src="/assets/icons/SVG/Icon-twitter.svg" alt="Twitter" class="footer__image-social">
+      </a>
+    </nav>
+    <div class="footer__contact-person">
+      <div class="footer__card-person">
+        <h3 class="footer__name-contact">Cam Adams</h3>
+        <p class="footer__position">The Bees Knees Management</p>
+        <p class="footer__option">
+          503 Broadway Penthouse,<br>
+          New York, NY 10012, USA
+        </p>
+        <a href="mailto:info@thebeesknees.com" class="footer__email">info@thebeesknees.com</a>
+      </div>
+      <div class="footer__card-person">
+        <h3 class="footer__name-contact">Pearl Gregg</h3>
+        <p class="footer__position">Limitless Artist Group</p>
+        <p class="footer__option">Booking Agent for<br>
+          US / South America / Japan</p>
+        <a href="mailto:pearl.gregg@limitlessag.com" class="footer__email">pearl.gregg@limitlessag.com</a>
+      </div>
+      <div class="footer__card-person">
+        <h3 class="footer__name-contact">Carson Whyte</h3>
+        <p class="footer__position">ARCH Entertainment</p>
+        <p class="footer__option">Booking Agent for<br>
+          UK / EU / AU</p>
+        <a href="mailto:cwhyte@archentertainment.com" class="footer__email">cwhyte@archentertainment.com</a>
+      </div>
     </div>
-    <img src="/assets/logos/Logo-bandsite.svg" alt="footer__logo" />
-    <p class="footer__copyright">Copyright The Bees Knees © 2021 All Rights Reserved</p>
+    <div class="footer__logo-contact">
+      <a href="./index.html" class="footer__link-logo"> <img src="./assets/logos/Logo-bandsite.svg" alt="BandSite"
+          class="footer__image-logo"></a>
+    </div>
+    <div class="footer__copyright">
+      <p class="footer__content-copyright">Copyright The Bees Knees @ 2021 All Rights Reserved</p>
+    </div>
   </footer>
 </body>
 

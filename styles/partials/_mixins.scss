@@ -1,11 +1,5 @@
-@mixin mobile{
-    @media (max-width: 767px){
-        @content;
-    }
-}
-
 @mixin tablet {
-    @media (min-width: 768px) and (max-width: 1279px){
+    @media (min-width: 768px){
         @content;
     }
 }
@@ -14,4 +8,14 @@
     @media (min-width:1280px){
         @content;
     }
+}
+
+
+
+@mixin displayType($justify-content:center, $flex-direction: row, $align-items: center, $flex-wrap: wrap){
+    display: flex;
+    justify-content: $justify-content;
+    flex-direction: $flex-direction;
+    align-items: $align-items;
+    flex-wrap: $flex-wrap;
 }

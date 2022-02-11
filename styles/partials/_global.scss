@@ -1,0 +1,211 @@
+@use "./colors" as *;
+@use "./fonts" as *;
+@use "./mixins" as *;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-avenir;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+//default
+//navbar starts here
+.navbar {
+  background-color: $bandsite-black;
+  padding-top: 3vh;
+  @include displayType(center, column, center);
+    @include tablet {
+        @include displayType(flex-start, row, center);
+        padding: 2vh 2vw;
+    }
+  @include desktop {
+    padding: 1.5rem 6rem;
+  }
+  &__logo {
+    width: 7.5rem;
+    height: 1.25rem;
+  }
+  &__right{
+      width: 100%;
+        @include tablet {
+        width: 30%;
+        }
+        @include desktop {
+        width: 20%;
+        }
+  }
+  &__list {
+    @include displayType(space-around, center);
+    padding: 0 1vw;
+    position: relative;
+    @include tablet{
+        padding: 0;
+        @include displayType(space-around, center);
+        margin-left: 3vw;
+    }
+    @include desktop {
+        @include displayType(space-evenly, center);  
+        margin-left: 2vw; 
+    }
+  }
+  &__items-link {
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    
+    &__items-link--hover:hover{
+        @include desktop{
+                border-bottom: 3px solid white;
+                padding-bottom: 65%;
+            }
+        }
+    }
+    // &__items-link--active{
+    //     font-weight: 600;
+    //     color: white;
+    //     @include tablet{
+    //         padding-bottom: 36%;
+    //         border-bottom: 3px solid white;
+    //     }
+    //     @include desktop{
+    //         padding-bottom: 40%;
+    //     }
+    //     &:after{
+    //     display:block;
+    //     position: absolute;
+    //     content: "";
+    //     height: 3px;
+    //     background-color: white;
+    //     width: 50%;
+    //     margin-top: 2vh;
+    //     left: 0%;
+    //     @include tablet {
+    //         display:none;
+    //         }
+    //     }
+    // }
+    
+}
+//navbar ends here
+//footer
+.footer {
+    background-color: $bandsite-black;
+    // width: 93.8%;
+    font-family: $font-avenir;
+    font-style: normal;
+    color: white;
+    padding: 1.5rem 1rem;
+    @include displayType(flex-start, column, flex-start, nowrap); 
+    @include tablet {
+        padding: 3rem 1.25rem 2.25rem 2.25rem;
+        position: relative;
+        }
+        @include desktop {
+            width: 95%;
+        }
+
+    &__title{
+        font-weight: 600;
+        margin-bottom: 1rem;
+        @include tablet {
+            margin-bottom: 2.25rem;
+        }
+    }
+    
+    &__nav-social {
+        @include displayType(flex-start, row, center, nowrap);
+        width: 30%;
+        margin-bottom: 1rem;
+        @include tablet {
+            position: absolute;
+            left: 35%;
+            top: 15%;
+            margin-bottom: 2.25rem;
+        }
+        @include desktop {
+            left: 28%;
+        }
+    }
+
+    &__image-social{
+        width: 1.6rem;
+        height: 1.6rem;
+        margin-right: 1.5rem;
+    }
+
+    &__contact-person {
+        @include displayType(flex-start, column, flex-start, nowrap);
+        @include tablet {
+            @include displayType(space-between, row, center, nowrap);
+            width: 100%;
+            margin-bottom: 2.25rem;
+        }
+        @include desktop {
+            width: 75%;
+            margin-bottom: 3rem;
+        }
+    }
+
+    &__card-person {
+        margin-bottom: 1rem;
+        width: 100%;
+        @include tablet {
+            width: 33%; 
+            margin-right: 1rem;  
+            margin-bottom: 0;
+        } 
+    }
+
+    &__name-contact{
+        font-weight: 600;
+        @include tablet {
+        }
+    }
+    
+    &__position {
+        font-weight: 600;
+        // margin-bottom: 1rem;
+        @include tablet {
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    &__option, 
+    &__email {
+        margin-bottom: 1rem;
+        font-weight: 400;
+        @include tablet {
+            // @include font-stack (0.875rem, 400, 1.25rem, $white);
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    &__logo-contact {
+        margin: 3rem 0 1rem;
+        @include tablet {
+            position:absolute;
+            right: 5%;
+            top: 5%;
+        }
+        @include desktop {
+            right: 8%;
+        }
+    }
+
+    &__image-logo {
+        width: 7.5rem;
+        height: 1.25rem;
+    }
+
+    &__copyright{
+        width: 100%;
+        @include tablet {
+        }
+    }
+}
