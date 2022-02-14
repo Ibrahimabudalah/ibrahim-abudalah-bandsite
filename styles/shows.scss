@@ -39,12 +39,6 @@
   background-size: cover;
   width: 100%;
   height: 30vh;
-  &__blur{
-      background-color: $bandsite-black;
-      opacity: 0.5;
-      width: 100%;
-      height: 30vh;
-  }
   &__name{
       color: white;
       font-size: 1rem;
@@ -70,4 +64,12 @@
       margin-left: 5vw;
     }
   }
+  &__soundcloud{
+    width: 80vw;
+    padding-top: 15vh;
+  }
+}
+
+.shows{
+
 }

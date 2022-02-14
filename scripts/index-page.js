@@ -34,12 +34,12 @@ const div = element(`div`, `comments__section`);
 const commentsHeading = element(`h1`, `comments__heading`);
 const commentsContainer = element(`div`, `comments__container`);
 let profilePic = element(`img`, `comments__container--image`);
-let form = element(`form`, `comments__form`);
+let form = element(`form`, `comments__container__form`);
 let labelName = element(`label`, `comments__form--label`);
 let nameValue = element(`input`, `comments__form--name`);
 let labelComments = element(`label`, `comments__form--label`);
 let commentValue = element(`textarea`, `comments__form--comment`);
-let button = element(`input`, `comments__form--button`);
+let button = element(`input`, `comments__button`);
 const formSeparator = element(`div`, `form__separator`);
 
 //creates the html elements and assignes a class name via the element function
@@ -61,7 +61,7 @@ attribute(commentValue, {
 });
 attribute(button, {
     type: `submit`,
-    value: `Comment`
+    value: `COMMENT`
 });
 //profile picture
 attribute(profilePic, { src: `assets/images/Mohan-muruge.jpg` });
@@ -92,8 +92,8 @@ form.append(
     commentValue,
     button);
 
-labelName.innerText = `Name`;
-labelComments.innerText = `Comment`;
+labelName.innerText = `NAME`;
+labelComments.innerText = `COMMENT`;
 //Adding divider
 div.appendChild(formSeparator);
 
