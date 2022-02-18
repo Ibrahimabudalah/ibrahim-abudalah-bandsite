@@ -1,34 +1,23 @@
-const element = (element, className) => {
+//Function to create new elements with class names
+function element(element, className) {
     const ele = document.createElement(element);
     ele.classList.add(className);
     return ele;
 }
-const attribute = (element, attribute) => {
+function attribute(element, attribute) {
     for (key in attribute) {
         element.setAttribute(key, attribute[key]);
     }
 }
-// functions to add elements/blocks and attributes 
-// functions to add elements/blocks and attributes
-const defaultComments = [
-    {
-        name: `Connor Walton`,
-        date: `02/17/2021`,
-        comment: `This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.`
-    },
-    {
-        name: `Emilie Beach`,
-        date: `01/09/2021`,
-        comment: `I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.`
-    },
-    {
-        name: `Miles Acosta`,
-        date: `12/20/2020`,
-        comment: `I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.`
-    }
-];
-//the array of the 3 default comments
 
+
+//declaring the api link where all the comments are stored and the api key used
+const herokuURL = `https://project-1-api.herokuapp.com/comments`;
+const apiKey = `?api_key=ff335e47-7991-4451-843b-9cbf05cfdd33`;
+const commentsAPI = herokuURL + apiKey;
+
+
+//creates the html elements and assignes a class name via the element function
 const comments = element(`section`, `comments`);
 const div = element(`div`, `comments__section`);
 const commentsHeading = element(`h1`, `comments__heading`);
@@ -42,30 +31,28 @@ let commentValue = element(`textarea`, `comments__form--comment`);
 let button = element(`input`, `comments__button`);
 const formSeparator = element(`div`, `form__separator`);
 
-//creates the html elements and assignes a class name via the element function
-
-
+//adding attributes
 attribute(labelName, { for: `name` });
 attribute(labelComments, { for: `comment` });
-//Inputs
 attribute(nameValue, {
     type: `text`,
     name: `input_name`,
-    placeholder: `Enter your name`
+    placeholder: `Enter your name`,
 });
 attribute(commentValue, {
     type: `text`,
     name: `input_comment`,
     placeholder: `Add a new comment`,
-    rows: `4`
+    rows: `4`,
 });
 attribute(button, {
     type: `submit`,
-    value: `COMMENT`
+    value: `COMMENT`,
 });
-//profile picture
+//adding the profile picture to the appropriate element
 attribute(profilePic, { src: `assets/images/Mohan-muruge.jpg` });
-//referancing the gallery section in order to place the comments section below it
+
+//referancing the gallery section in order to place the comments section right below it
 const gallery = document.querySelector(`.gallery`);
 const insertAfter = (referance, element) => {
     referance.parentNode.insertBefore(element, referance.nextSibling);
@@ -77,9 +64,7 @@ document.body.insertBefore(commentsTitle, comments);
 //appending the HTML elements
 
 comments.appendChild(div);
-div.append(
-    commentsHeading,
-    commentsContainer);
+div.append(commentsHeading, commentsContainer);
 commentsContainer.appendChild(profilePic);
 
 commentsHeading.innerText = `Join the Conversation`;
@@ -90,49 +75,98 @@ form.append(
     nameValue,
     labelComments,
     commentValue,
-    button);
+    button
+);
 
-labelName.innerText = `NAME`;
-labelComments.innerText = `COMMENT`;
-//Adding divider
+labelName.innerText = `Name`;
+labelComments.innerText = `Comment`;
 div.appendChild(formSeparator);
 
-//a function to display the comments on the page
+//Date
+const nowTime = new Date();
+let dateValue = `${nowTime.getMonth() + 1}/${nowTime.getDate()}/${nowTime.getFullYear()}`;
+//dynamicTimeStamp
+function dynamicTimeStamp(date) {
+    let timeInS = (nowTime - new Date(date)) / 1000;
+    let sInYear = 31536000;
+    let sInMonth = sInYear / 12;
+    let sInWeek = 604800;
+    let sInDay = sInWeek / 7;
+    let sInHour = 3600;
 
-function displayComment(array) {
-    let arrayElements = element(`div`, `comments--array`);
-    div.appendChild(arrayElements);
-
-    array.forEach(elem => {
-        let commentsContainer = element(`div`, `comments__container`);
-        let nameAndDate = element(`div`, `comments__display`);
-        let picture = element(`img`, `comments__display--image`);
-        let profileName = element(`h4`, `comments__display--name`);
-        let displayDate = element(`p`, `comments__display--date`)
-        let displayComments = element(`p`, `text__comments`);
-        let seperator = element(`div`, `separator`);
-
-        profileName.innerText = elem.name;
-        displayDate.innerText = (elem.date);
-        displayComments.innerText = elem.comment;
-
-        arrayElements.appendChild(commentsContainer);
-        commentsContainer.append(
-            picture,
-            nameAndDate);
-        nameAndDate.append(
-            profileName,
-            displayDate,
-            displayComments);
-        arrayElements.appendChild(seperator);
-    })
+    if (timeInS / sInYear > 1.5) {
+        return `${Math.round(timeInS / sInYear)} years ago`;
+    } else if (
+        Math.floor(timeInS / sInMonth) === 12 ||
+        Math.round(timeInS / sInMonth) === 12
+    ) {
+        return `1 year ago`;
+    } else if (timeInS / sInMonth > 1.5) {
+        return `${Math.round(timeInS / sInMonth)} months ago`;
+    } else if (Math.floor(timeInS / sInMonth) === 1) {
+        return `1 month ago`;
+    } else if (timeInS / sInWeek > 1.5) {
+        return `${Math.round(timeInS / sInWeek)} weeks ago`;
+    } else if (Math.floor(timeInS / sInWeek) === 1) {
+        return `1 week ago`;
+    } else if (timeInS / sInDay > 1.5) {
+        return `${Math.round(timeInS / sInDay)} days ago`;
+    } else if (Math.floor(timeInS / sInDay) === 1) {
+        return `1 day ago`;
+    } else if (timeInS / sInHour > 1.5) {
+        return `${Math.round(timeInS / sInHour)} hours ago`;
+    } else if (Math.floor(timeInS / sInHour) === 1) {
+        return `1 hour ago`;
+    } else if (timeInS / 60 > 1.5) {
+        return `${Math.round(timeInS / 60)} minutes ago`;
+    } else if (Math.floor(timeInS / 60) === 1) {
+        return `1 minute ago`;
+    } else {
+        return `A few seconds ago`;
+    }
 }
 
-displayComment(defaultComments);
+//rendering the comments to the page
+function renderComment(element1) {
+    let elementContainer = element(`card`, `comments__container`);
+    attribute(elementContainer, { id: element1.id });
+    let displayElement = element(`div`, `comments__display`);
+    let displayContainer = element(`div`, `comments__display--container`);
+    let commentsName = element(`h4`, `comments__display--name`);
+    let commentsDate = element(`p`, `comments__display--date`);
+    let deleteButtonElement = element(`img`, `comments__display--delete-icon`);
+    attribute(deleteButtonElement, { src: `./assets/icons/SVG/icon-delete.svg` });
+    deleteButtonElement.addEventListener(`click`, deleteValidation);
+    let likeButtonElement = element(`img`, `comments__display--like-icon`);
+    attribute(likeButtonElement, { src: `./assets/icons/SVG/icon-like.svg` });
+    likeButtonElement.addEventListener(`click`, likeComment);
+    let likeCounter = element(`p`, `comments__display--like-counter`);
+    let commentsText = element(`p`, `text__comments`);
+    let commentsImage = element(`img`, `comments__display--image`);
+    let modalEl = element(`div`, `modal`);
+    let textElement = element(`p`, `text__modal`);
+    let yesButtonElement = element(`input`, `modal__button--yes`);
+    attribute(yesButtonElement, { type: `button`, value: `\u2713` });
+    yesButtonElement.addEventListener(`click`, deleteComment);
+    let noButtonElement = element(`input`, `modal__button--no`);
+    attribute(noButtonElement, { type: `button`, value: `\u2715` });
+    noButtonElement.addEventListener(`click`, deleteValidation);
 
-//this is to add a new comment from the user input to an array
+    commentsName.innerText = element1.name;
+    commentsDate.innerText = dynamicTimeStamp(element1.timestamp);
+    likeCounter.innerText = `Likes: ${element1.likes}`;
+    commentsText.innerText = element1.comment;
+    textElement.innerText = `Are you sure?`;
 
-let addComment = (event) => {
+    formSeparator.prepend(elementContainer);
+    elementContainer.append(commentsImage, displayElement, modalEl);
+    displayElement.append(commentsName, displayContainer, commentsText);
+    displayContainer.append(commentsDate, likeCounter, likeButtonElement, deleteButtonElement);
+    modalEl.append(textElement, yesButtonElement, noButtonElement);
+}
+
+//Display comment function including validation
+const addComment = (event) => {
     event.preventDefault();
 
     let formElements = form.children;
@@ -144,57 +178,85 @@ let addComment = (event) => {
         commentValue.classList.add(`invalid`);
         alert(`Please fill out all fields.`);
     } else {
-        let commentsObj = {};
-
         for (let i = 0; i < formElements.length; i++) {
             if (formElements[i].classList.contains(`invalid`)) {
                 formElements[i].classList.remove(`invalid`);
             }
         }
 
+        const commentsObj = {};
         commentsObj.name = nameValue;
-        commentsObj.date = dynamicTimeStamp(dateValue);
         commentsObj.comment = commentValue;
 
-        let arr = document.querySelector(`.comments--array`);
-        arr.remove();
-        defaultComments.unshift(commentsObj);
-        displayComment(defaultComments);
+        axios
+            .post(commentsAPI, commentsObj)
+            .then((result) => {
+                renderComment(result.data);
+            })
+            .catch((error) => console.log(error));
+
         form.reset();
     }
-}
+};
+
+// adding a like function
+const likeComment = (event) => {
+    let comment = event.target.parentNode.parentNode.parentNode;
+    let putRequest = `${herokuURL}/${comment.id}/like${apiKey}`;
+    console.log(putRequest);
+    axios
+        .put(putRequest)
+        .then((result) => {
+            let commentToLike = document.getElementById(result.data.id);
+            let like = commentToLike.children[1].children[1].children[1];
+            return (like.innerHTML = `Likes: ${result.data.likes}`);
+        })
+        .catch((error) => console.log(error));
+};
+
+
+//Delete function
+const deleteComment = (event) => {
+    let comment = event.target.parentNode.parentNode;
+    let deleteRequest = `${herokuURL}/${comment.id}${apiKey}`;
+    axios
+        .delete(deleteRequest)
+        .then((result) => {
+            let commentToDelete = document.getElementById(result.data.id);
+            commentToDelete.remove();
+        })
+        .catch((error) => console.log(error));
+};
+
+//a function to validate the deletion of a comment
+const deleteValidation = (event) => {
+    let pathOne = event.target.parentNode.parentNode.parentNode.children[2];
+    let pathTwo = event.target.parentNode.parentNode.children[2];
+
+    window.onclick = (event) => {
+        if (event.target.className === `comments__display--delete-icon`) {
+            pathOne.style.display = `block`;
+        } else if (event.target.className === `modal__button--no`) {
+            pathTwo.style.display = `none`;
+        } else {
+            pathOne.style.display = `none`;
+        }
+    };
+};
+
+//pulling the comments from the api
+axios
+    .get(commentsAPI)
+    .then((comment) => {
+        let arr = comment.data;
+        arr
+            .sort((a, b) => {
+                return a.timestamp - b.timestamp;
+            })
+            .forEach((elem) => {
+                renderComment(elem);
+            });
+    })
+    .catch((error) => console.log(error));
 
 form.addEventListener(`submit`, addComment);
-
-
-const nowTime = new Date();
-let dateValue = (nowTime.getMonth() + 1) + `/` + nowTime.getDate() + `/` + nowTime.getFullYear();
-
-//dynamicTimeStamp
-function dynamicTimeStamp(date) {
-    let timeInS = ((nowTime - new Date(date)) / 1000);
-    let sInYear = 31536000;
-    let sInMonth = sInYear / 12;
-    let sInWeek = 604800;
-    let sInDay = sInWeek / 7;
-
-    if ((timeInS / sInYear) > 1) {
-        return Math.round(timeInS / sInYear) + ` years ago`;
-    } else if ((Math.floor(timeInS / sInMonth)) === 12) {
-        return `1 year ago`;
-    } else if (timeInS / sInMonth > 1) {
-        return Math.round(timeInS / sInMonth) + ` months ago`;
-    } else if (Math.floor(timeInS / sInMonth) === 1) {
-        return `1 month ago`;
-    } else if (timeInS / sInWeek > 1) {
-        return Math.round(timeInS / sInWeek) + ` weeks ago`;
-    } else if (Math.floor(timeInS / sInWeek) === 1) {
-        return `1 week ago`;
-    } else if (timeInS / sInDay > 1) {
-        return Math.round(timeInS / sInDay) + ` days ago`;
-    } else if (Math.floor(timeInS / sInDay) === 1) {
-        return `1 day ago`;
-    } else {
-        return `A few seconds ago`;
-    }
-}

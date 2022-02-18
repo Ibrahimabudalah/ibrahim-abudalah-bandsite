@@ -513,11 +513,6 @@ a {
 .comments__heading {
   color: #323232;
 }
-.comments__container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-}
 .comments__container--image {
   max-height: 4rem;
   max-width: 4rem;
