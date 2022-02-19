@@ -23,12 +23,12 @@ const div = element(`div`, `comments__section`);
 const commentsHeading = element(`h1`, `comments__heading`);
 const commentsContainer = element(`div`, `comments__container`);
 let profilePic = element(`img`, `comments__container--image`);
-let form = element(`form`, `comments__container__form`);
+let form = element(`form`, `comments__form`);
 let labelName = element(`label`, `comments__form--label`);
 let nameValue = element(`input`, `comments__form--name`);
 let labelComments = element(`label`, `comments__form--label`);
 let commentValue = element(`textarea`, `comments__form--comment`);
-let button = element(`input`, `comments__button`);
+let button = element(`input`, `comments__form--button`);
 const formSeparator = element(`div`, `form__separator`);
 
 //adding attributes
