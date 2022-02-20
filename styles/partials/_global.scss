@@ -23,13 +23,21 @@ a {
     @include tablet {
         @include displayType(flex-start, row, center);
         padding: 2vh 2vw;
+        height: 8vh;
     }
   @include desktop {
-    padding: 1.5rem 6rem;
   }
   &__logo {
     width: 7.5rem;
     height: 1.25rem;
+    @include tablet{
+        padding-bottom: 4vh;
+        padding-left: 5vw;
+    }
+    @include desktop{
+        padding-left: 10vw;
+        padding-bottom: 12vh;
+    }
   }
   &__right{
       width: 100%;
@@ -45,58 +53,34 @@ a {
     padding: 0 1vw;
     position: relative;
     @include tablet{
+        width: 40vw;
         padding: 0;
-        @include displayType(space-around, center);
-        margin-left: 3vw;
+        @include displayType(space-evenly, center);
     }
     @include desktop {
         @include displayType(space-evenly, center);  
         margin-left: 2vw; 
+        padding-bottom: 8vh;
+        width: 100%;
     }
   }
   &__items-link {
     color: white;
     font-size: 20px;
     font-weight: 600;
-    
-    &__items-link--hover:hover{
-        @include desktop{
-                border-bottom: 3px solid white;
-                padding-bottom: 65%;
-            }
-        }
+    @include tablet{
+        font-size: 1rem;
+        padding-bottom: 5vh;
+        font-weight: 400;
     }
-    // &__items-link--active{
-    //     font-weight: 600;
-    //     color: white;
-    //     @include tablet{
-    //         padding-bottom: 36%;
-    //         border-bottom: 3px solid white;
-    //     }
-    //     @include desktop{
-    //         padding-bottom: 40%;
-    //     }
-    //     &:after{
-    //     display:block;
-    //     position: absolute;
-    //     content: "";
-    //     height: 3px;
-    //     background-color: white;
-    //     width: 50%;
-    //     margin-top: 2vh;
-    //     left: 0%;
-    //     @include tablet {
-    //         display:none;
-    //         }
-    //     }
-    // }
-    
-}
+    @include desktop{
+        font-size: 1.2rem;
+    }
+}}
 //navbar ends here
 //footer
 .footer {
     background-color: $bandsite-black;
-    // width: 93.8%;
     font-family: $font-avenir;
     font-style: normal;
     color: white;
@@ -107,7 +91,6 @@ a {
         position: relative;
         }
         @include desktop {
-            width: 95%;
         }
 
     &__title{
@@ -170,7 +153,6 @@ a {
     
     &__position {
         font-weight: 600;
-        // margin-bottom: 1rem;
         @include tablet {
             margin-bottom: 1.5rem;
         }
@@ -181,7 +163,6 @@ a {
         margin-bottom: 1rem;
         font-weight: 400;
         @include tablet {
-            // @include font-stack (0.875rem, 400, 1.25rem, $white);
             margin-bottom: 1.5rem;
         }
     }

@@ -19,11 +19,11 @@
         display:block;
         position: absolute;
         content: "";
-        height: 3px;
+        // height: 3px;
         background-color: white;
         width: 50%;
-        margin-top: 2vh;
-        left: 0%;
+        // margin-top: 2vh;
+        left: 50%;
         @include tablet {
             display:none;
             }
@@ -70,6 +70,6 @@
   }
 }
 
-.shows{
+// .shows{
 
-}
+// }
