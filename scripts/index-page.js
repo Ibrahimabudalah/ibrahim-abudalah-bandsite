@@ -13,7 +13,7 @@ function attribute(element, attribute) {
 
 //declaring the api link where all the comments are stored and the api key used
 const herokuURL = `https://project-1-api.herokuapp.com/comments`;
-const apiKey = `?api_key=ff335e47-7991-4451-843b-9cbf05cfdd33`;
+const apiKey = `?api_key=20e3e4b5-3154-46d4-ad0e-59daafff561d`;
 const commentsAPI = herokuURL + apiKey;
 
 
@@ -78,8 +78,8 @@ form.append(
     button
 );
 
-labelName.innerText = `Name`;
-labelComments.innerText = `Comment`;
+labelName.innerText = `NAME`;
+labelComments.innerText = `COMMENT`;
 div.appendChild(formSeparator);
 
 //Date
@@ -134,14 +134,14 @@ function renderComment(element1) {
     let displayContainer = element(`div`, `comments__display--container`);
     let commentsName = element(`h4`, `comments__display--name`);
     let commentsDate = element(`p`, `comments__display--date`);
-    let deleteButtonElement = element(`img`, `comments__display--delete-icon`);
+    let deleteButtonElement = element(`img`, `comments__display--delete`);
     attribute(deleteButtonElement, { src: `./assets/icons/SVG/icon-delete.svg` });
     deleteButtonElement.addEventListener(`click`, deleteValidation);
-    let likeButtonElement = element(`img`, `comments__display--like-icon`);
+    let likeButtonElement = element(`img`, `comments__display--like`);
     attribute(likeButtonElement, { src: `./assets/icons/SVG/icon-like.svg` });
     likeButtonElement.addEventListener(`click`, likeComment);
     let likeCounter = element(`p`, `comments__display--like-counter`);
-    let commentsText = element(`p`, `text__comments`);
+    let commentsText = element(`p`, `comments__display-text`);
     let commentsImage = element(`img`, `comments__display--image`);
     let modalEl = element(`div`, `modal`);
     let textElement = element(`p`, `text__modal`);
