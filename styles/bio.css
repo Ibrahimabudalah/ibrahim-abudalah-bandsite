@@ -556,13 +556,17 @@ a {
   justify-content: space-between;
   border-bottom: 0.1rem solid #E1E1E1;
   width: 95%;
-  padding-left: 25vw;
 }
 @media (min-width: 1280px) {
   .comments__container {
     padding-left: 1vw;
     margin-left: 25vw;
     width: 36%;
+  }
+}
+@media (min-width: 768px) {
+  .comments__container {
+    padding: 0;
   }
 }
 .comments__container--image {

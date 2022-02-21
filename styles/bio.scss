@@ -254,13 +254,15 @@
             margin-left: 25vw;
             width: 36%;
         }
+        @include tablet{
+            padding: 0;
+        }
         &--image {
             max-height: 4rem;
             max-width: 4rem;
             margin-top: 1.6rem;
             clip-path: circle(35% at 40% 50%);
         }
-        padding-left: 25vw;
     }
     &__form {
         color: $silver;
