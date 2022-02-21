@@ -273,7 +273,7 @@ a {
 }
 @media (min-width: 1280px) {
   .navbar__items-link--hover {
-    padding-bottom: 15.5%;
+    padding-bottom: 10%;
   }
 }
 .navbar__items-link--hover::after {
@@ -301,12 +301,39 @@ a {
   width: 100%;
   height: 30vh;
 }
+@media (min-width: 1280px) {
+  .hero {
+    height: 90vh;
+  }
+}
+@media (min-width: 768px) {
+  .hero {
+    height: 80vh;
+  }
+}
 .hero__name {
   color: white;
   font-size: 1rem;
   font-weight: 400;
   padding-bottom: 15vh;
   padding-left: 5vw;
+}
+@media (min-width: 1280px) {
+  .hero__name {
+    padding-bottom: 15vw;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-left: 10vw;
+  }
+}
+@media (min-width: 768px) {
+  .hero__name {
+    font-size: 1.5rem;
+    width: 100%;
+    padding-bottom: 55vh;
+    font-family: 700;
+    padding-left: 7vw;
+  }
 }
 .hero__heading {
   position: absolute;
@@ -319,20 +346,37 @@ a {
 }
 @media (min-width: 768px) {
   .hero__heading {
-    font-size: 60px;
-    padding-top: 5vw;
+    font-size: 3.5rem;
+    padding-bottom: 22vw;
+    line-height: 4.5rem;
   }
 }
 @media (min-width: 1280px) {
   .hero__heading {
-    font-size: 60px;
-    font-weight: 600;
-    margin-left: 5vw;
+    padding-bottom: 6vw;
+    font-size: 3rem;
+    padding-left: 10vw;
+    width: 31%;
+    line-height: 4rem;
   }
 }
 .hero__soundcloud {
   padding-top: 15vh;
   margin-right: 30vw;
+}
+@media (min-width: 1280px) {
+  .hero__soundcloud {
+    width: 35%;
+    padding-left: 30vw;
+    margin: 0%;
+  }
+}
+@media (min-width: 768px) {
+  .hero__soundcloud {
+    margin: 0;
+    padding-top: 40vh;
+    padding-right: 45vw;
+  }
 }
 
 .shows {
@@ -347,12 +391,28 @@ a {
   margin-left: -1rem;
   border-collapse: collapse;
 }
+@media (min-width: 1280px) {
+  .shows__table {
+    width: 80%;
+    margin-left: 20vw;
+  }
+}
+@media (min-width: 768px) {
+  .shows__table {
+    margin-left: -2rem;
+  }
+}
 .shows__table--row {
   padding: 1rem;
   display: flex;
   flex-direction: column;
   border-bottom: 0.0625rem solid #E1E1E1;
   transition: transform;
+}
+@media (min-width: 768px) {
+  .shows__table--row {
+    display: table-row;
+  }
 }
 .shows__table--row:hover {
   background-color: #FAFAFA;
@@ -368,9 +428,16 @@ a {
   border-radius: 0.25rem;
   font-size: 1rem;
 }
-.shows__table:hover {
-  background-color: black;
-  transition: color, 0.2s;
+@media (min-width: 768px) {
+  .shows__table--button {
+    margin: 0.7rem 0;
+    width: 70%;
+  }
+}
+@media (min-width: 1280px) {
+  .shows__table--button {
+    width: 35%;
+  }
 }
 .shows__table-container {
   width: 100%;
@@ -387,6 +454,14 @@ a {
 .text__header--section {
   color: #323232;
 }
+@media (min-width: 1280px) {
+  .text__header--section {
+    font-size: 1.8rem;
+    font-weight: 600;
+    padding-left: 5vw;
+    padding-top: 3vh;
+  }
+}
 .text__header--page {
   color: white;
   font-weight: 700;
@@ -397,11 +472,33 @@ a {
   top: 22.5%;
   z-index: 10;
 }
+@media (min-width: 768px) {
+  .text__header--page {
+    font-size: 3.5rem;
+  }
+}
+@media (min-width: 1280px) {
+  .text__header--page {
+    top: 50%;
+    width: 50%;
+  }
+}
 .text__header--album {
   color: white;
   position: absolute;
   top: 10%;
   z-index: 10;
+}
+@media (min-width: 768px) {
+  .text__header--album {
+    font-size: 1.3rem;
+    top: 15%;
+  }
+}
+@media (min-width: 1280px) {
+  .text__header--album {
+    top: 50%;
+  }
 }
 .text__header--mobile {
   font-weight: 600;
@@ -410,8 +507,22 @@ a {
   color: #AFAFAF;
   text-transform: uppercase;
 }
+@media (min-width: 768px) {
+  .text__header--mobile {
+    display: none;
+  }
+}
 .text__header--table {
   display: none;
+}
+@media (min-width: 768px) {
+  .text__header--table {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #AFAFAF;
+    text-align: left;
+    display: table-cell;
+  }
 }
 .text--shows-date {
   font-weight: 600;
@@ -419,6 +530,16 @@ a {
   line-height: 1.125rem;
   color: #323232;
   margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .text--shows-date {
+    padding-left: 1.2rem;
+  }
+}
+@media (min-width: 1280px) {
+  .text--shows-date {
+    width: 9rem;
+  }
 }
 .text--shows-venue, .text--shows-location {
   font-weight: 400;

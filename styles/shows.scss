@@ -13,7 +13,7 @@
             border-bottom: 3px solid white;
         }
         @include desktop {
-            padding-bottom: 15.5%;
+            padding-bottom: 10%;
         }
         &::after {
             display: block;
@@ -39,12 +39,31 @@
   background-size: cover;
   width: 100%;
   height: 30vh;
+  @include desktop{
+    height: 90vh;
+  }
+  @include tablet{
+    height: 80vh;
+  }
   &__name{
       color: white;
       font-size: 1rem;
       font-weight: 400;
       padding-bottom: 15vh;
       padding-left: 5vw;
+      @include desktop{
+        padding-bottom: 15vw;
+        font-size: 1.5rem;
+        font-weight: 600;
+        padding-left: 10vw;
+      }
+      @include tablet{
+        font-size: 1.5rem;
+        width: 100%;
+        padding-bottom: 55vh;
+        font-family: 700;
+        padding-left: 7vw;
+      }
   }
   &__heading {
     position: absolute;
@@ -55,19 +74,31 @@
     padding-left: 5vw;
     width: 65%;
     @include tablet {
-      font-size: 60px;
-      padding-top: 5vw;
+      font-size: 3.5rem;
+      padding-bottom: 22vw;
+      line-height: 4.5rem;
     }
     @include desktop {
-      font-size: 60px;
-      font-weight: 600;
-      margin-left: 5vw;
+      padding-bottom: 6vw;
+      font-size: 3rem;
+      padding-left: 10vw;
+      width: 31%;
+      line-height: 4rem;
     }
   }
   &__soundcloud{
-    // width: 100%;
     padding-top: 15vh;
     margin-right: 30vw;
+    @include desktop{
+      width: 35%;
+      padding-left: 30vw;
+      margin: 0%;
+    }
+    @include tablet{
+      margin: 0;
+      padding-top: 40vh;
+      padding-right: 45vw;
+    }
   }
 }
 
@@ -82,12 +113,22 @@
     width: calc(100% + 2rem);
     margin-left: -1rem;
     border-collapse: collapse;
+    @include desktop{
+      width: 80%;
+      margin-left: 20vw;
+    }
+    @include tablet{
+      margin-left: -2rem;
+    }
     &--row {
       padding: 1rem;
       display: flex;
       flex-direction: column;
       border-bottom: 0.0625rem solid $mercury;
       transition: transform;
+      @include tablet{
+        display: table-row;
+      }
       &:hover {
         background-color: $alabaster;
         transform: background-color, 0.2s;
@@ -102,17 +143,19 @@
       border: none;
       border-radius: 0.25rem;
       font-size: 1rem;
+      @include tablet{
+        margin: 0.7rem 0;
+        width: 70%
+      }
+      @include desktop{
+        width: 35%
+      }
     };
-    &:hover {
-      background-color: black;
-      transition: color, 0.2s;
-    }
     &-container {
       width: 100%;
     }
   }
-}    
-
+}
 .divider {
     width: 100vw;
 }
@@ -123,6 +166,12 @@
     &__header { 
       &--section{
         color: $bandsite-black;
+        @include desktop{
+          font-size: 1.8rem;
+          font-weight: 600;
+          padding-left: 5vw;
+          padding-top: 3vh;
+        }
       }     
       &--page {
       color: white;
@@ -133,12 +182,26 @@
       max-width: 75%;
       top: 22.5%;
       z-index: 10;
+      @include tablet{
+        font-size: 3.5rem;
+      }
+      @include desktop{
+        top: 50%;
+        width: 50%;
+      }
     }
     &--album {
       color: white;
       position: absolute;
       top: 10%;
       z-index: 10;
+      @include tablet{
+        font-size: 1.3rem;
+        top: 15%;
+      }
+      @include desktop{
+        top: 50%;
+      }
     }
     &--mobile {
       font-weight: 600;
@@ -146,9 +209,19 @@
       line-height: 1.125rem;
       color: $silver;
       text-transform: uppercase;
+      @include tablet{
+        display: none;
+      }
     }
     &--table {
       display: none;
+      @include tablet{
+        font-weight: 600;
+        font-size: 1rem;
+        color: $silver;
+        text-align: left;
+        display: table-cell;
+      }
     }
   }
   &--shows {
@@ -158,6 +231,12 @@
       line-height: 1.125rem;
       color: $bandsite-black;
       margin-bottom: 1rem;
+      @include tablet{
+        padding-left: 1.2rem;
+      }
+      @include desktop{
+        width: 9rem;
+      }
     }
     &-venue {
       font-weight: 400;

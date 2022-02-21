@@ -273,7 +273,7 @@ a {
 }
 @media (min-width: 1280px) {
   .navbar__items-link--active {
-    padding-bottom: 15.5%;
+    padding-bottom: 10.5%;
   }
 }
 .navbar__items-link--active::after {
