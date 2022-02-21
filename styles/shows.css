@@ -114,8 +114,8 @@ a {
 }
 .navbar__items-link {
   color: white;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 400;
 }
 @media (min-width: 768px) {
   .navbar__items-link {
@@ -267,21 +267,23 @@ a {
 }
 @media (min-width: 768px) {
   .navbar__items-link--hover {
-    padding-bottom: 36%;
+    padding-bottom: 10.5%;
     border-bottom: 3px solid white;
   }
 }
 @media (min-width: 1280px) {
   .navbar__items-link--hover {
-    padding-bottom: 40%;
+    padding-bottom: 15.5%;
   }
 }
 .navbar__items-link--hover::after {
   display: block;
   position: absolute;
   content: "";
+  height: 3px;
   background-color: white;
   width: 50%;
+  margin-top: 2vh;
   left: 50%;
 }
 @media (min-width: 768px) {
@@ -329,6 +331,99 @@ a {
   }
 }
 .hero__soundcloud {
-  width: 80vw;
   padding-top: 15vh;
+  margin-right: 30vw;
+}
+
+.shows {
+  padding-left: 5vw;
+}
+.shows__container {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+.shows__table {
+  width: calc(100% + 2rem);
+  margin-left: -1rem;
+  border-collapse: collapse;
+}
+.shows__table--row {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 0.0625rem solid #E1E1E1;
+  transition: transform;
+}
+.shows__table--row:hover {
+  background-color: #FAFAFA;
+  transform: background-color, 0.2s;
+}
+.shows__table--button {
+  height: 2.5rem;
+  padding: 0 2rem;
+  width: 95%;
+  background-color: #323232;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+}
+.shows__table:hover {
+  background-color: black;
+  transition: color, 0.2s;
+}
+.shows__table-container {
+  width: 100%;
+}
+
+.divider {
+  width: 100vw;
+}
+
+.active-row {
+  background-color: #E1E1E1;
+}
+
+.text__header--section {
+  color: #323232;
+}
+.text__header--page {
+  color: white;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  position: absolute;
+  max-width: 75%;
+  top: 22.5%;
+  z-index: 10;
+}
+.text__header--album {
+  color: white;
+  position: absolute;
+  top: 10%;
+  z-index: 10;
+}
+.text__header--mobile {
+  font-weight: 600;
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  color: #AFAFAF;
+  text-transform: uppercase;
+}
+.text__header--table {
+  display: none;
+}
+.text--shows-date {
+  font-weight: 600;
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  color: #323232;
+  margin-bottom: 1rem;
+}
+.text--shows-venue, .text--shows-location {
+  font-weight: 400;
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  color: #323232;
+  margin-bottom: 1rem;
 }/*# sourceMappingURL=shows.css.map */

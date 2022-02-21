@@ -76,7 +76,10 @@ axios
             dateEl.innerText = dateValue;
             venueEl.innerText = elem.place;
             locationEl.innerText = elem.location;
-            buttonEl.innerText = `Buy Tickets`;
+            dateHeaderEl.innerText = `Date`;
+            venueHeaderEl.innerText = `Venue`;
+            locationHeaderEl.innerText = `Location`;
+            buttonEl.innerText = `BUY TICKETS`;
 
             showsTable.appendChild(rowEl);
             rowEl.append(
@@ -93,3 +96,22 @@ axios
         });
     })
     .catch((error) => console.log(error));
+
+    //Event listener to change the colour of the table row
+showsTable.addEventListener(click, (event) => {
+    let rowTarget = event.target;
+    let tableRows = showsTable.children;
+
+    for (let i = 0; i < tableRows.length; i++) {
+        if (tableRows[i].classList.contains(active-row)) {
+            tableRows[i].classList.remove(active-row);
+        }
+    }
+
+    if (rowTarget.nodeName === TD) {
+        rowTarget.parentNode.classList.add(active-row);
+    } else if (rowTarget.nodeName === TR) {
+        rowTarget.classList.add(active-row);
+    } else {
+    }
+});
