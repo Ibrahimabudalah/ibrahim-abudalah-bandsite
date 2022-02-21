@@ -1,19 +1,24 @@
 //function to create elements with the appropriate class name
-function ele(element, className) {
-    let ele = document.createElement(element);
-    ele.classList.add(className);
-    return ele;
+function newElem(elem, className) {
+    let newElem = document.createElement(elem);
+    newElem.classList.add(className);
+    return newElem;
 }
 
-const shows = ele(`section`, `shows`);
-const showsSection = ele(`div`, `shows__section`);
-const showsHeading = ele(`h1`, `text__header--section`);
-const showsContainer = ele(`div`, `shows__container`)
-const showsTable = ele(`table`, `shows__table`);
-const showsRow = ele(`tr`, `shows__table--header-row`);
-const showsRowDate = ele(`th`, `text__header--table`);
-const showsRowVenue = ele(`th`, `text__header--table`);
-const showsRowLoc = ele(`th`, `text__header--table`);
+//declaring the api link where all the comments are stored and the api key used
+const herokuURL = `https://project-1-api.herokuapp.com/showdates`;
+const apiKey = `?api_key=20e3e4b5-3154-46d4-ad0e-59daafff561d`;
+const showsAPI = herokuURL + apiKey;
+
+const shows = newElem(`section`, `shows`);
+const showsSection = newElem(`div`, `shows__section`);
+const showsHeading = newElem(`h1`, `text__header--section`);
+const showsContainer = newElem(`div`, `shows__container`);
+const showsTable = newElem(`table`, `shows__table`);
+const showsRow = newElem(`tr`, `shows__table--header-row`);
+const showsRowDate = newElem(`th`, `text__header--table`);
+const showsRowVenue = newElem(`th`, `text__header--table`);
+const showsRowLoc = newElem(`th`, `text__header--table`);
 showsHeading.innerText = `Shows`;
 showsRowDate.innerText = `Date`;
 showsRowVenue.innerText = `Venue`;
@@ -21,87 +26,70 @@ showsRowLoc.innerText = `Location`;
 //the referance element to show the shows after the hero section
 const hero = document.querySelector(`.hero`);
 
-function insertAfter(referance, elem) {
-    referance.parentNode.insertBefore(elem, referance.nextSibling);
-};
+function insertAfter(ref, elem) {
+    ref.parentNode.insertBefore(elem, ref.nextSibling);
+}
 
 insertAfter(hero, shows);
 const showsTitle = document.createComment(` Shows `);
 document.body.insertBefore(showsTitle, shows);
 
-//shows array
-const showsArray = [
-    {
-        date: `Mon Sept 06 2021`,
-        venue: `Ronald Lane`,
-    },
-    {
-        date: `Tue Sept 21 2021`,
-        venue: `Pier 3 East`,
-    },
-    {
-        date: `Fri Oct 15 2021`,
-        venue: `View Lounge`,
-    },
-    {
-        date: `Sat Nov 06 2021`,
-        venue: `Hyatt Agency`,
-    },
-    {
-        date: `Fri Nov 26 2021`,
-        venue: `Moscow Center`,
-    },
-    {
-        date: `Wed Dec 15 2021`,
-        venue: `Press Club`,
-    }
-];
+//appending
 shows.appendChild(showsSection);
-showsSection.append(
-    showsHeading,
-    showsContainer);
-//adding table and table headers
+showsSection.append(showsHeading, showsContainer);
 showsContainer.appendChild(showsTable);
 showsTable.appendChild(showsRow);
-showsRow.append(
-    showsRowDate,
-    showsRowVenue,
-    showsRowLoc
-);
+showsRow.append(showsRowDate, showsRowVenue, showsRowLoc);
 
-//Function to display all shows
-function displayShows(arr) {
-    arr.forEach(elem => {
-        let rowEl = ele(`tr`, `shows__table--row`);
-        let dateHeaderEl = ele(`td`, `text__header--mobile`);
-        let dateEl = ele(`td`, `text--shows-date`);
-        let venueHeaderEl = ele(`td`, `text__header--mobile`);
-        let venueEl = ele(`td`, `text--shows-venue`);
-        let locationHeaderEl = ele(`td`, `text__header--mobile`)
-        let locationEl = ele(`td`, `text--shows-location`);
-        let buttonContainerEl = ele(`td`, `shows__table--button-container`)
-        let buttonEl = ele(`button`, `shows__table--button`);
-        buttonEl.setAttribute(`type`, `button`);
+//using axios to pull the data from the api
+axios
+    .get(showsAPI)
+    .then((show) => {
+        let showsData = show.data;
 
-        dateHeaderEl.innerText = `Date`;
-        dateEl.innerText = elem.date;
-        venueHeaderEl.innerText = `Venue`;
-        venueEl.innerText = elem.venue;
-        locationHeaderEl.innerText = `Location`;
-        locationEl.innerText = `San Francisco, CA`
-        buttonEl.innerText = `Buy Tickets`;
+        //this method is to display shows data
+        showsData.forEach((elem) => {
+            let rowEl = newElem(`tr`, `shows__table--row`);
+            let dateHeaderEl = newElem(`td`, `text__header--mobile`);
+            let dateEl = newElem(`td`, `text--shows-date`);
+            let venueHeaderEl = newElem(`td`, `text__header--mobile`);
+            let venueEl = newElem(`td`, `text--shows-venue`);
+            let locationHeaderEl = newElem(`td`, `text__header--mobile`);
+            let locationEl = newElem(`td`, `text--shows-location`);
+            let buttonContainerEl = newElem(`td`, `shows__table--button-container`);
+            let buttonEl = newElem(`button`, `shows__table--button`);
+            buttonEl.setAttribute(`type`, `button`);
 
-        showsTable.appendChild(rowEl);
-        rowEl.append(
-            dateHeaderEl,
-            dateEl,
-            venueHeaderEl,
-            venueEl,
-            locationHeaderEl,
-            locationEl,
-            buttonContainerEl
-        );
-        buttonContainerEl.appendChild(buttonEl);
-    });
-};
-displayShows(showsArray);
+            //date formating the shows dates
+            let fullDate = new Date((JSON.parse(elem.date)));
+            let commaRegex = /,/g;
+            const options = {
+                weekday: `short`,
+                year: `numeric`,
+                month: `short`,
+                day: `2-digit`,
+            };
+            let dateValue = fullDate
+                .toLocaleDateString(`en-US`, options)
+                .replace(commaRegex, ``);
+
+            dateEl.innerText = dateValue;
+            venueEl.innerText = elem.place;
+            locationEl.innerText = elem.location;
+            buttonEl.innerText = `Buy Tickets`;
+
+            showsTable.appendChild(rowEl);
+            rowEl.append(
+                dateHeaderEl,
+                dateEl,
+                venueHeaderEl,
+                venueEl,
+                locationHeaderEl,
+                locationEl,
+                buttonContainerEl
+            );
+            buttonContainerEl.appendChild(buttonEl);
+            
+        });
+    })
+    .catch((error) => console.log(error));
